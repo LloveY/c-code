@@ -1,0 +1,70 @@
+int main()
+{
+	/*int ch = getchar();
+	putchar(ch); 
+	printf("%c\n", ch);
+*/
+	/*ctrl+z
+	EOF-end of file (文件结束标志)->-1*/
+	int ch = getchar();
+	while ((ch=getchar())!= EOF)//输出ctrl+z结束运行
+	{
+		putchar(ch);
+	}
+return 0;
+}
+
+
+
+int main()
+{
+	int ps = getchar();
+	while ((ps = getchar()) != EOF)
+	{
+		if (ps<'0' || ps>'9')//选取0-9的字符
+			continue;
+		putchar(ps);
+	}
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+//putchar的作用
+int main()
+{
+	int ret = 0;
+	int ch = 0;
+	//int passward[20] = { 0 };
+	printf("%c\n", ch);
+	printf("请输入密码\n"); 
+int ps = getchar();
+while ((ps = getchar()) != '\n')
+{
+	if (ps<'0' || ps>'9')
+		continue;
+	printf("%c", ps);
+}
+printf("      请两次回撤");
+	//scanf("%s", passward);
+ch = getchar();
+while ((ch = getchar()) != '\n')
+{
+	;
+}
+
+	printf("请确认密码Y/N\n");
+	ret=getchar();
+	{
+		if (ret == 'Y')
+			printf("确认成功");
+		else
+			printf("放弃确认");
+	}
+}
