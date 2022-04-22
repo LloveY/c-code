@@ -1,0 +1,76 @@
+//输入星期判断句工作日星期日
+int main()
+{
+	int day ;
+	//int n = 1;
+	while(scanf("%d", &day)==1)
+	{
+		if (day < 0 || day > 7 )
+		{
+			printf("请重新输入\n");
+		}
+		switch (day)
+		{
+			//case n:   不行case后跟常量表达式
+		case 1:
+		case 2:
+		case 3:
+		case 4:
+		case 5:
+			printf("工作日\n");
+			break;
+		case 6:
+		case 7:
+			printf("休息日\n");
+			break;
+		defeat:
+			break;
+		}
+	}
+	return 0;
+}
+
+
+//输入1-100成绩判断成绩的情况
+int main()
+{
+	printf("请输入成绩\n");
+	double score;
+	int a;
+	while (scanf("%lf", &score) == 1)//判断输入的的数字是不是真，若不为数字跳出运行
+	{
+		if (score < 0 || score>100)
+		{
+			printf("请重新输入0到100的数字\n");
+		}
+		if (score == 100)
+		{
+			printf("满分\n");
+		}
+		a = (int)score / 10;//(int)强制类型转换
+		switch (a)
+		{
+		case 0:
+		case 1:
+		case 3:
+		case 4:
+		case 5:
+		case 6:
+			printf("成绩不及格\n");
+			break;
+		case 7:
+			printf("成绩合格\n");
+			break;
+		case 8:
+			printf("成绩优秀\n");
+			break;
+		case 9:
+			printf("成绩特别好\n");
+			break;
+		defeat:
+			break;
+
+		}	
+	}
+	return 0;
+}
