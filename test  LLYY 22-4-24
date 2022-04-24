@@ -1,0 +1,119 @@
+
+//查找数组中的数字
+int main()
+{
+	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+	int k = 0;
+	int i = 0;
+	scanf("%d", &k);
+	int sz = sizeof(arr) / sizeof(arr[0]);//数组中的int型数字的个数
+	
+		for (i = 0; i < sz; i++)
+		{
+			if (k == arr[i])//如果输入的数等于数组中的某个数
+			{
+				printf("找到了，下标是: %d\n", i);
+				break;
+			}
+		}
+		if (i == sz)//如果从数组下标为0开始，到sz-1没有找到说明数组中没有这个数字，此时i=sz不符合for循环的条件
+		{
+			printf("找不到\n");
+		}		
+	return 0;
+}
+
+
+
+//折半查找算法。二分查找算法
+//折半查找 二分查找 查找log2(n)次
+
+int main()
+{
+	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+	int sz = sizeof(arr) / sizeof(arr[0]);
+	int k = 0;
+	int left = 0;
+	int right = sz-1;
+	int mid = 0;
+	scanf("%d", &k);		
+	while (right>=left)//当right=left  相等时然后再进行一次判断，如果不是话就会进行一次if或者else if执行语句，就会导致left加或者right减，此时就说明要找的数不在当中
+	{
+		mid = (left + right) / 2;//用中间元素锁定要找的元素
+		if (k >arr[mid])
+		{
+			left = mid + 1;//加1因为知道k大于mid，所以此时加一，重新规定k的范围
+		}
+		else  if(k < arr[mid])
+		{
+			right = mid - 1;
+		}
+		else
+		{
+			printf("找到了，下标为：%d\n", mid);
+			break;
+		}
+	}
+	if (left > right)//不加条件的话每次都会打印
+	{
+		printf("没有找到\n");
+	}
+		return 0;
+}
+
+
+//welcome to bit!!!!!!
+//w##################!
+//we################!!
+//wel##############!!!
+//welcome to bit!!!!!!
+int main()
+{
+	char arr1[] = "welcome to bit!!!!!!";
+	char arr2[] = "####################";
+	int left=0;
+	//int right=(sizeof(arr1)/sizeof arr1[0])-2;有\0 因为这个算的是根据arr1包括\0字符
+	int right = strlen(arr1) - 1;  //strlen指的是字符串的（有效）长度，不包括\0
+	while (left <= right)
+	{
+		arr2[left] = arr1[left];
+		arr2[right] = arr1[right];
+		printf("%s\n", arr2);
+		//休息一秒
+		Sleep(1000);
+		system("cls");//执行系统命令的一个函数
+		left++;
+		right--;
+	}
+	printf("%s\n",arr2);
+	return 0;
+}
+
+
+//输入密码，正确则进入，最多输出三次密码，否则退出程序
+int main()
+{
+	int i = 0;
+	char passward[20] = {0};
+	for (i = 0; i <3; i++)
+	{	
+		printf("请输入密码:\n");
+		scanf("%s",passward); 
+		//strcmp规定左>右输出正数，左边等于右边输出0，左边<右边输出负数。
+		if(strcmp(passward ,"123456") ==0)//不能用来比较俩个字符串是否相等，应该使用一个库函数---strump
+		{
+			
+			printf("登陆成功\n");
+			break;
+		}
+		else
+		{
+			printf("密码错误\n");
+		}
+	}
+	if (i == 3)
+	{
+		printf("三次密码均错误，退出程序\n");
+	}
+	return 0;
+}
