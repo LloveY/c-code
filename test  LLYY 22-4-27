@@ -1,0 +1,110 @@
+//猜数字游戏
+//1.电脑产生随机数
+//2.猜数字
+
+void menu()
+{
+	printf("*************************************\n");
+	printf("*******     1.play  0 exit    *******\n");
+	printf("*************************************\n");
+}
+void game()
+{
+	int ret = 0;
+	int guess = 0;
+	//拿时间戳来设置
+	//时间戳
+	//当前计算机的时间-计算机的起始时间(1970.1.1.0.0.0)=(XXXX)秒
+	//time函数
+	//time_t time(time_t*timer)   //time 类型返回的函数是---time_t         //括号里的类型是(time_t*timer)--指针类型
+	//srand((unsigned int)time(NULL));//NULL空指针
+
+	//生成随机数
+	//RAND_MAX---0-32767
+	ret=rand()%100+1;//生成随机数的函数,由于数字太大，除以100余数一定为0——99加1为1——100；生成的随机数就变成了1-100猜数字才好玩-----头文件stdlib.h
+	//printf("%d", ret);
+	//猜数字
+	while (1)
+	{
+		printf("猜数字>;");
+		scanf("%d", &guess);
+		if (guess > ret)
+		{
+			printf("猜大了\n");
+		}
+		else if (guess < ret)
+		{
+			printf("猜小了\n");		
+		}
+		else
+		{
+			printf("恭喜你猜对了\n");
+			break;
+		}
+	}
+}
+int main()
+{
+	srand((unsigned int)time(NULL));//在主函数出调用，不用每次调用都重新到起点
+	int input = 0;
+	do
+	{
+		menu();
+		printf("请选择>:");
+		scanf("%d",&input);
+		switch (input)
+		{
+		case 1:
+			game();//猜数字
+			break;
+		case 0:
+			printf("退出游戏\n");
+				break;
+		default:
+			printf("选择错误\n");
+				break;
+		}
+	} 
+	while (input);	
+	return 0;
+}
+
+
+//goto语句可以用while循环代替
+int main()
+{
+	char input[20] = { 0 };
+	again:
+	//shutdow-s-t 60 60秒关机 -a取消关机
+	//systom()-执行系统命令的---<stdlib.h>
+	system("shutdown -a -t 60");
+	printf("请注意你的电脑在1分钟内关机，如果输入:我是猪，就取消关机\n请输入;");
+	scanf("%s",input);
+	if (strcmp(input, "我是猪") == 0)//比较俩个字符串--strcmp()--<string.h>
+	{
+		system("shutdown -a");
+	}
+	else
+	{
+		goto again;
+	}
+	
+	return 0;
+}
+
+
+//巧妙利用flag一次正一次负
+//求1/1-1/2+1/3-1/4.....-1/100
+int main()
+{
+	int i = 0;
+	double flag=1;
+	double sum = 0.0;
+	for (i = 1; i <= 100; i++)
+	{	
+		sum+=flag*1.0/i;
+		flag = -flag;
+	}
+	printf("和为:%lf", sum);
+	return 0;
+}
