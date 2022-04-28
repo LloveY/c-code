@@ -1,0 +1,23 @@
+int main()
+{
+	//strlen--string length---字符串长度有关
+	//strcpy--string copy---字符串拷贝
+	char arr1[] = "bit";
+	char arr2[20] = "###########";
+	char arr3[20] ;
+	strcpy(arr2, arr1);
+	strcpy(arr3,"loveYY");
+	printf("arr=%s\narr3=%s\n", arr2,arr3);
+	return 0;
+}
+
+//memset
+//memory -内存设置--set
+int main()
+{
+
+	char arr[] = "hell0 world";
+	memset(arr,'*',5);
+	printf("%s\n",arr);
+	return 0;
+}
