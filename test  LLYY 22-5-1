@@ -1,0 +1,66 @@
+
+//函数嵌套调用
+void new_line()
+{
+	printf("呵呵\n");
+}
+void three_line()
+{
+	int i = 0;
+	for (i=1;i<=3;i++)
+	{
+		new_line();
+	}
+
+}
+int main()
+{
+	three_line();
+	return 0;
+}
+
+
+
+//链式访问
+int main()
+{
+	int len = 0;
+	len = strlen("abc");
+	printf("%d\n",len);
+	printf("%d\n", strlen("abc"));
+	return 0;
+}
+
+int main()
+{
+	printf("%d",printf("%d",printf("%d",printf("%d",43))));//,printf("%d",43)--先打印43返回个数字为43的的长度2，然后继续打印2然后返回一个2的长度1，然后继续打印1然后返回一个1的长度1，最后打印1.
+	return 0;
+}
+
+
+//函数的声明
+//告诉编译器有一个函数叫什么，参数是什么，返回值类型是什么，但是具体是不是存在，无关紧要
+//函数的声明一般出现在函数的使用之前，需要满足先声明再使用
+//函数的声明一般要放在头文件中的
+//函数定义
+//函数具体怎么实现，交代函数的功能实现
+#include "App.h"
+int main()
+{
+	int a = 0;
+	int b = 0;
+	scanf("%d %d",&a,&b);
+	int sum = Add(a, b)//函数调用
+	printf("俩数和为=%d",sum);	
+	return 0;
+}
+//函数声明
+App.h
+int Add(int x ,int y )
+//函数定义
+App.c
+int Add(int x ,int y )
+{
+	int c = x + y;
+	return c;
+}
