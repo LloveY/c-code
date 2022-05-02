@@ -1,0 +1,45 @@
+//递归调用，按顺序打出印输入的数字
+int print(int n)
+{
+	if (n > 9)
+	{
+		print(n / 10);
+	}
+	printf("%d ", n % 10);
+}
+int main()
+{
+	 unsigned int num = 0;
+	scanf("%d",&num);
+	print(num);
+	return 0;
+}
+
+//计算字符串的长度
+int my_strlen(char* str)
+{
+	int count = 0;
+	//计算字符串的长度
+	//while (*str != '\0')//*解引用操作符就能从地址中取出字符
+	//{
+	//	count++;
+	//	str ++;	
+	//}
+	if (*str != '\0')
+	{
+		return	count = 1 + my_strlen(str + 1);
+	}
+	else
+		return 0;
+}
+
+int main()
+{
+	char arr[] = "bit";
+	/* int num = strlen(arr);
+	 printf("%d",num);*/
+	int len = my_strlen(arr);//arr数组，数组传参，传过去的的不是整个数组，而是第一个元素的首地址
+	printf("%d",len);
+
+}
+
